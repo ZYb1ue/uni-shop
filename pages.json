@@ -28,6 +28,29 @@
 		}
 
 	}],
+	"subPackages": [{
+		"root": "subpkg",
+		"pages": [
+
+			{
+				"path": "goods-detail/goods-detail",
+				"style": {
+					// "navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+
+			}
+		    ,{
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    // "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+	}],
 	"tabBar": {
 		"list": [{
 			"text": "首页",
