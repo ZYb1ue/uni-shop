@@ -30,10 +30,9 @@
 				<!-- 楼层标题 -->
 				<image :src="item.floor_title.image_src" class="floor-title"></image>
 				<!-- 楼层图片区域 -->
-				{{item.product_list[0].url}}
 				<view class="floor-img-box">
 					<!-- 左侧大盒子图片 -->
-					<navigator :url="item.product_list[0].url"class="left-img-box">
+					<navigator :url="item.product_list[0].url" class="left-img-box">
 						<!-- mode="widthFix" 宽度不变高度自适应 -->
 						<image :src="item.product_list[0].image_src"
 							:style="{width:item.product_list[0].image_width+'rpx'}" mode="widthFix"></image>
@@ -42,9 +41,8 @@
 					<view class="right-img-box">
 						<!-- 图片小盒子 -->
 						<!-- 通过v-if控制索引为0图片不显示 -->
-						<navigator class="right-img-item" v-for="(item2,i2) in item.product_list" :key="i2" v-if="i2!==0"
-						:url="item2.url"
-						>
+						<navigator class="right-img-item" v-for="(item2,i2) in item.product_list" :key="i2"
+							v-if="i2!==0" :url="item2.url">
 							<image :src="item2.image_src" mode="widthFix" :style="{width:item2.image_width+'rpx'}">
 							</image>
 						</navigator>
@@ -88,7 +86,7 @@
 				}
 				// 请求成功，存储数据 ，提示用户数据请求成功
 				this.swiperList = results.data.message
-				return uni.$showMsg("数据请求成功", 1500, "success")
+				return uni.$showMsg("数据请求成功")
 			},
 			// 获取分类导航数据的函数
 			async getNavList() {
@@ -99,7 +97,7 @@
 				}
 				// 请求成功，存储数据，提示用户数据请求成功
 				this.navList = results.data.message
-				return uni.$showMsg("数据请求成功", 1500, "success")
+				return uni.$showMsg("数据请求成功")
 			},
 			// 点击 分类导航，跳转到分类页面
 			navClickHandler(nav) {
@@ -129,7 +127,7 @@
 					})
 				})
 				this.floorList = results.data.message
-				return uni.$showMsg("数据请求成功", 1500, "success")
+				return uni.$showMsg("数据请求成功")
 			},
 
 		}
