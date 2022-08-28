@@ -1,5 +1,11 @@
 <template>
 	<view>
+		<!-- 给自定义组件包裹一个 view 通过样式，让搜索框拥有吸顶效果 -->
+		<view class="search-box">
+			<!-- 自定义组件 搜索区域 -->
+			<!-- 给子组件绑定自定义事件，在组件内部通过$emit触发 -->
+			<my-search @myclick="gotoSearch"></my-search>
+		</view>
 		<!-- 轮播图区域 -->
 		<!-- 
 			:indicator-dots="true" 显示小圆点
@@ -129,7 +135,13 @@
 				this.floorList = results.data.message
 				return uni.$showMsg("数据请求成功")
 			},
-
+			// 自定义事件 myclick 的回调
+			gotoSearch() {
+				// 点击搜索框 跳转到搜索页面
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				})
+			}
 		}
 	}
 </script>
@@ -175,5 +187,15 @@
 		// 允许换行
 		flex-wrap: wrap;
 		justify-content: space-around;
+	}
+
+	// 搜索框吸顶效果
+	.search-box {
+		// 设置定位效果为“吸顶”
+		position: sticky;
+		// 吸顶的“位置”
+		top: 0;
+		// 提高层级，防止被轮播图覆盖
+		z-index: 999;
 	}
 </style>

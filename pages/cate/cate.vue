@@ -1,5 +1,10 @@
 <template>
 	<view>
+		<!-- 自定义组件 搜索区域 -->
+		<!-- 通过传递 props 可以自定义背景颜色和圆角尺寸 -->
+		<!-- <my-search bgColor="#9932CC" radius="2"></my-search> -->
+		<!-- 给子组件绑定自定义事件，在组件内部通过$emit触发 -->
+		<my-search @myclick="gotoSearch"></my-search>
 		<!-- 滚动容器 -->
 		<view class="scroll-view-container">
 			<!-- 左侧滚动容器 -->
@@ -58,7 +63,7 @@
 			// 调用 获取设备信息的 api 
 			let sysInfo = uni.getSystemInfoSync()
 			// windowHeight 代表设备可使用窗口高度，单位px，将其赋值给 wh 用于确定滚动容器高度
-			this.wh = sysInfo.windowHeight
+			this.wh = sysInfo.windowHeight-60
 
 			// 获取分类数据列表
 			this.getCateList()
@@ -91,6 +96,13 @@
 				// 使用 wx.navigateBack 可以返回到原页面。小程序中页面栈最多十层
 				wx.navigateTo({
 					url: `/subpkg/goods_list/goods_list?cid=${cate3.cat_id}`
+				})
+			},
+			// 自定义事件 myclick 的回调
+			gotoSearch(){
+				// 点击搜索框 跳转到搜索页面
+				uni.navigateTo({
+					url:'/subpkg/search/search'
 				})
 			}
 		}
