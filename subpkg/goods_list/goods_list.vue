@@ -78,7 +78,6 @@
 			},
 			// 点击商品项 ，跳转到商品详情页面  goods 是点击项的商品信息
 			gotoDetail(goods) {
-				console.log(goods.goods_id);
 				uni.navigateTo({
 					url:`/subpkg/goods-detail/goods-detail?goods_id=${goods.goods_id}`
 				})

@@ -43,6 +43,8 @@
 </template>
 
 <script>
+// 引入 mixin（混入）中 tabbar-badge
+import tabbarBadge from "../../mixin/tabbar-badge"
 	export default {
 		data() {
 			return {
@@ -58,6 +60,7 @@
 				scrollTop: 0
 			}
 		},
+		mixins:[tabbarBadge],
 		// 页面加载生命周期
 		onLoad() {
 			// 调用 获取设备信息的 api 

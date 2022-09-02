@@ -61,6 +61,8 @@
 </template>
 
 <script>
+// 引入 mixin（混入）中 tabbar-badge
+import tabbarBadge from "../../mixin/tabbar-badge"
 	export default {
 		data() {
 			return {
@@ -72,6 +74,7 @@
 				floorList: [],
 			};
 		},
+		mixins:[tabbarBadge],
 		// 页面加载执行一次
 		onLoad() {
 			// 获取轮播图数据

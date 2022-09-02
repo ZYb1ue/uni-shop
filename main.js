@@ -15,13 +15,17 @@ uni.$showMsg = function(title = '数据加载失败！', duration = 1500, icon =
 		icon //不显示提示图标
 	})
 }
+// 引入 store 仓库
+import store from "./store/store"
 
 Vue.config.productionTip = false //关闭生产提示
 
 App.mpType = 'app'
 
 const app = new Vue({
-	...App
+	...App,
+	// 将 store 挂载到 Vue 实例上
+	store,
 })
 app.$mount()
 // #endif
