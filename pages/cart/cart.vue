@@ -25,6 +25,8 @@
 		<!-- 结算组件 -->
 		<my-settle :checkedCount="checkedCount"></my-settle>
 	</view>
+	
+	<!-- 空购物车页面 -->
 	<view class="empty-cart" v-else>
 		<image src="@/static/cart_empty@2x.png" class="empty-img"></image>
 		<text class="tip-text">空空如也~</text>
